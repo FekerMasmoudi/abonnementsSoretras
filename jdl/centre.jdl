@@ -1,0 +1,11 @@
+entity Center{
+
+        deccent   Integer required, 
+	delcent String,
+	delcentfr String, 
+	deadrce String, 
+	deobser String
+}
+  
+
+use mapstruct, serviceClass, pagination for *
