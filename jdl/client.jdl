@@ -1,0 +1,28 @@
+
+enum ETypeClient{
+
+	ELEVE, ETUDIANT, STAGIAIRE, APPRENTI, ORDINAIRE, SOCIETE, ASSOCIATION, ASOCIALE
+}
+
+entity Client{
+	
+	nompre String required,
+	typeclt ETypeClient required,
+	datenais LocalDate required,
+	cin String required,
+	dateedit LocalDate,
+	identuniq String,
+	idetablissement String,
+ 	classe String ,
+	nomprepar String,
+	addr String,
+	email String,
+	phone String required,
+	img String required
+        
+    }
+
+
+  
+
+use mapstruct, serviceClass, pagination for *
