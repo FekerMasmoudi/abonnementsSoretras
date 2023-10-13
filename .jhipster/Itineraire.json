@@ -1,0 +1,71 @@
+{
+  "applications": "*",
+  "changelogDate": "20231012154240",
+  "clientRootFolder": "itinerairesdb",
+  "databaseType": "mongodb",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "itineraire",
+  "fields": [
+    {
+      "fieldName": "deccent",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "decagenc",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "denumli",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "decstat",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "denumlg",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dekmsta",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "dedurtr",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "deescale",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "embra",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "section",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "sens",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dectyst",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "itinerairesdb",
+  "name": "Itineraire",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

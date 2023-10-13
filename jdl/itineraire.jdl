@@ -1,0 +1,18 @@
+entity Itineraire{
+
+        deccent   Integer, 
+	decagenc   Integer required, 
+	denumli String required, 
+	decstat String required, 
+	denumlg   Integer required, 
+	dekmsta   Integer, 
+	dedurtr   Integer, 
+	deescale   Integer, 
+	embra String, 
+	section   Integer, 
+	sens String, 
+	dectyst String
+    }
+  
+
+use mapstruct, serviceClass, pagination for *
