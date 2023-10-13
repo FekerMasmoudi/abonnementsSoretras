@@ -1,0 +1,37 @@
+{
+  "applications": "*",
+  "changelogDate": "20231012153627",
+  "clientRootFolder": "agencesdb",
+  "databaseType": "mongodb",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "agence",
+  "fields": [
+    {
+      "fieldName": "deccent",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "decagenc",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "delagenc",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "delagencfr",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "agencesdb",
+  "name": "Agence",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

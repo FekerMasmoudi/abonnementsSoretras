@@ -1,0 +1,11 @@
+entity Agence {
+      
+	deccent   Integer required, 
+	decagenc   Integer required, 
+	delagenc String,
+	delagencfr String 
+	
+	}
+  
+
+use mapstruct, serviceClass, pagination for *
