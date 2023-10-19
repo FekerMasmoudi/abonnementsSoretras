@@ -1,0 +1,41 @@
+{
+  "applications": "*",
+  "changelogDate": "20231012153936",
+  "clientRootFolder": "centredb",
+  "databaseType": "mongodb",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "center",
+  "fields": [
+    {
+      "fieldName": "deccent",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "delcent",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "delcentfr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "deadrce",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "deobser",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "centredb",
+  "microservicePath": "../centre_manager",
+  "name": "Center",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

@@ -1,0 +1,141 @@
+<div>
+  <h2 id="page-heading" data-cy="StationHeading">
+    <span jhiTranslate="gatewaydbApp.stationsdbStation.home.title">Stations</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="gatewaydbApp.stationsdbStation.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-station"
+        [routerLink]="['/station/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="gatewaydbApp.stationsdbStation.home.createLabel"> Create a new Station </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="stations?.length === 0">
+    <span jhiTranslate="gatewaydbApp.stationsdbStation.home.notFound">No Stations found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="stations && stations.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="namefr">
+            <div class="d-flex">
+              <span jhiTranslate="gatewaydbApp.stationsdbStation.namefr">Namefr</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="namear">
+            <div class="d-flex">
+              <span jhiTranslate="gatewaydbApp.stationsdbStation.namear">Namear</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="longitude">
+            <div class="d-flex">
+              <span jhiTranslate="gatewaydbApp.stationsdbStation.longitude">Longitude</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lattitude">
+            <div class="d-flex">
+              <span jhiTranslate="gatewaydbApp.stationsdbStation.lattitude">Lattitude</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="decstat">
+            <div class="d-flex">
+              <span jhiTranslate="gatewaydbApp.stationsdbStation.decstat">Decstat</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="status">
+            <div class="d-flex">
+              <span jhiTranslate="gatewaydbApp.stationsdbStation.status">Status</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let station of stations; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/station', station.id, 'view']">{{ station.id }}</a>
+          </td>
+          <td>{{ station.namefr }}</td>
+          <td>{{ station.namear }}</td>
+          <td>{{ station.longitude }}</td>
+          <td>{{ station.lattitude }}</td>
+          <td>{{ station.decstat }}</td>
+          <td>{{ station.status }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/station', station.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">عرض</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/station', station.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">تعديل</span>
+              </button>
+
+              <button type="submit" (click)="delete(station)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">حذف</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="stations && stations.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

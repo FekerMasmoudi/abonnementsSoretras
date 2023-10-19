@@ -1,0 +1,24 @@
+<form *ngIf="station" name="deleteForm" (ngSubmit)="confirmDelete(station.id!)">
+  <div class="modal-header">
+    <h4 class="modal-title" data-cy="stationDeleteDialogHeading" jhiTranslate="entity.delete.title">تأكيد عملية الحذف</h4>
+
+    <button type="button" class="btn-close" data-dismiss="modal" aria-hidden="true" (click)="cancel()">&times;</button>
+  </div>
+
+  <div class="modal-body">
+    <jhi-alert-error></jhi-alert-error>
+    <p id="jhi-delete-station-heading" jhiTranslate="gatewaydbApp.stationsdbStation.delete.question" [translateValues]="{ id: station.id }">
+      Are you sure you want to delete Station {{ station.id }}?
+    </p>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancel()">
+      <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">الغاء</span>
+    </button>
+
+    <button id="jhi-confirm-delete-station" data-cy="entityConfirmDeleteButton" type="submit" class="btn btn-danger">
+      <fa-icon icon="times"></fa-icon>&nbsp;<span jhiTranslate="entity.action.delete">حذف</span>
+    </button>
+  </div>
+</form>

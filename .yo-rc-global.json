@@ -2,7 +2,8 @@
   "generator-jhipster:7.9.3": {
     "promptValues": {
       "packageName": "tn.soretras.gateway",
-      "nativeLanguage": "ar-ly"
+      "nativeLanguage": "ar-ly",
+      "microservicePath": "../centre_manager"
     }
   }
 }

@@ -14,6 +14,7 @@ import './config/dayjs';
 import { SharedModule } from 'app/shared/shared.module';
 import { TranslationModule } from 'app/shared/language/translation.module';
 import { AppRoutingModule } from './app-routing.module';
+//import { LoginModule } from './login/login.module';
 import { HomeModule } from './home/home.module';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { NgbDateDayjsAdapter } from './config/datepicker-adapter';
@@ -31,6 +32,7 @@ import { ErrorComponent } from './layouts/error/error.component';
   imports: [
     BrowserModule,
     SharedModule,
+
     HomeModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     AppRoutingModule,

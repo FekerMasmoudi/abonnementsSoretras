@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="station">
+      <h2 data-cy="stationDetailsHeading"><span jhiTranslate="gatewaydbApp.stationsdbStation.detail.title">Station</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ station.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewaydbApp.stationsdbStation.namefr">Namefr</span></dt>
+        <dd>
+          <span>{{ station.namefr }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewaydbApp.stationsdbStation.namear">Namear</span></dt>
+        <dd>
+          <span>{{ station.namear }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewaydbApp.stationsdbStation.longitude">Longitude</span></dt>
+        <dd>
+          <span>{{ station.longitude }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewaydbApp.stationsdbStation.lattitude">Lattitude</span></dt>
+        <dd>
+          <span>{{ station.lattitude }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewaydbApp.stationsdbStation.decstat">Decstat</span></dt>
+        <dd>
+          <span>{{ station.decstat }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewaydbApp.stationsdbStation.status">Status</span></dt>
+        <dd>
+          <span>{{ station.status }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">رجوع</span>
+      </button>
+
+      <button type="button" [routerLink]="['/station', station.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">تعديل</span>
+      </button>
+    </div>
+  </div>
+</div>

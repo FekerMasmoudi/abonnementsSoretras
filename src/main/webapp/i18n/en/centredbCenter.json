@@ -1,0 +1,32 @@
+{
+  "gatewaydbApp": {
+    "centredbCenter": {
+      "home": {
+        "title": "Centers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Center",
+        "createOrEditLabel": "Create or edit a Center",
+        "notFound": "No Centers found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Center {{ id }}?"
+      },
+      "detail": {
+        "title": "Center"
+      },
+      "id": "ID",
+      "deccent": "Deccent",
+      "delcent": "Delcent",
+      "delcentfr": "Delcentfr",
+      "deadrce": "Deadrce",
+      "deobser": "Deobser"
+    }
+  },
+  "centredbApp": {
+    "centredbCenter": {
+      "created": "A new Center is created with identifier {{ param }}",
+      "updated": "A Center is updated with identifier {{ param }}",
+      "deleted": "A Center is deleted with identifier {{ param }}"
+    }
+  }
+}

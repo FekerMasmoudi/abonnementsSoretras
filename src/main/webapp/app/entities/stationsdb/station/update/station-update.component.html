@@ -1,0 +1,92 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-station-heading"
+        data-cy="StationCreateUpdateHeading"
+        jhiTranslate="gatewaydbApp.stationsdbStation.home.createOrEditLabel"
+      >
+        Create or edit a Station
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewaydbApp.stationsdbStation.namefr" for="field_namefr">Namefr</label>
+          <input type="text" class="form-control" name="namefr" id="field_namefr" data-cy="namefr" formControlName="namefr" />
+          <div *ngIf="editForm.get('namefr')!.invalid && (editForm.get('namefr')!.dirty || editForm.get('namefr')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('namefr')?.errors?.required" jhiTranslate="entity.validation.required">
+              هذا الحقل مطلوب.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewaydbApp.stationsdbStation.namear" for="field_namear">Namear</label>
+          <input type="text" class="form-control" name="namear" id="field_namear" data-cy="namear" formControlName="namear" />
+          <div *ngIf="editForm.get('namear')!.invalid && (editForm.get('namear')!.dirty || editForm.get('namear')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('namear')?.errors?.required" jhiTranslate="entity.validation.required">
+              هذا الحقل مطلوب.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewaydbApp.stationsdbStation.longitude" for="field_longitude">Longitude</label>
+          <input type="text" class="form-control" name="longitude" id="field_longitude" data-cy="longitude" formControlName="longitude" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewaydbApp.stationsdbStation.lattitude" for="field_lattitude">Lattitude</label>
+          <input type="text" class="form-control" name="lattitude" id="field_lattitude" data-cy="lattitude" formControlName="lattitude" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewaydbApp.stationsdbStation.decstat" for="field_decstat">Decstat</label>
+          <input type="text" class="form-control" name="decstat" id="field_decstat" data-cy="decstat" formControlName="decstat" />
+          <div *ngIf="editForm.get('decstat')!.invalid && (editForm.get('decstat')!.dirty || editForm.get('decstat')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('decstat')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              هذا الحقل مطلوب.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewaydbApp.stationsdbStation.status" for="field_status">Status</label>
+          <input type="text" class="form-control" name="status" id="field_status" data-cy="status" formControlName="status" />
+          <div *ngIf="editForm.get('status')!.invalid && (editForm.get('status')!.dirty || editForm.get('status')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('status')?.errors?.required" jhiTranslate="entity.validation.required">
+              هذا الحقل مطلوب.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">الغاء</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">حفظ</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
